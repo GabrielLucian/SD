@@ -31,8 +31,8 @@ drumret *drum(int s, int d, int *vizit,graphAdjMat_t *graph,stack *path)
                     ret->cost += graph->mat[s][i];
                     if (ret->cost < mincost) {
                         mincost = ret->cost;
-
-                        //delete_stack(path);
+                        if(path!=NULL)
+                            delete_stack(path);
                         //free(path);
                         path=ret->path;
                     }
@@ -77,8 +77,8 @@ void e1(graphAdjMat_t *graph)
         printf("\n");
 
         free(vizit);
-        //free(path1);
-        //free(path2);
+        delete_stack(path1);
+        delete_stack(path2);
         delete_stack(ret1->path);
         delete_stack(ret2->path);
         free(ret1);
@@ -127,6 +127,6 @@ int main() {
             printf("%.1f ", graph->mat[i][j]);
         printf("\n");
     }*/
-    printf("\b");
+    //printf("\b");
     return 0;
 }

@@ -1,54 +1,218 @@
-==3847== 16 bytes in 1 blocks are definitely lost in loss record 1 of 8
-==3847==    at 0x483877F: malloc (vg_replace_malloc.c:307)
-==3847==    by 0x109A97: drum (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x109DC0: e1 (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x10A040: main (in /home/gabriel/SD/Tema3/tema3)
-==3847== 
-==3847== 16 bytes in 1 blocks are definitely lost in loss record 2 of 8
-==3847==    at 0x483877F: malloc (vg_replace_malloc.c:307)
-==3847==    by 0x109A97: drum (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x109DE0: e1 (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x10A040: main (in /home/gabriel/SD/Tema3/tema3)
-==3847== 
-==3847== 16 bytes in 1 blocks are definitely lost in loss record 3 of 8
-==3847==    at 0x483877F: malloc (vg_replace_malloc.c:307)
-==3847==    by 0x109A97: drum (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x109DC0: e1 (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x10A040: main (in /home/gabriel/SD/Tema3/tema3)
-==3847== 
-==3847== 16 bytes in 1 blocks are definitely lost in loss record 4 of 8
-==3847==    at 0x483877F: malloc (vg_replace_malloc.c:307)
-==3847==    by 0x109CDB: drum (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x109DC0: e1 (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x10A040: main (in /home/gabriel/SD/Tema3/tema3)
-==3847== 
-==3847== 16 bytes in 1 blocks are definitely lost in loss record 5 of 8
-==3847==    at 0x483877F: malloc (vg_replace_malloc.c:307)
-==3847==    by 0x109A97: drum (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x109DE0: e1 (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x10A040: main (in /home/gabriel/SD/Tema3/tema3)
-==3847== 
-==3847== 16 bytes in 1 blocks are definitely lost in loss record 6 of 8
-==3847==    at 0x483877F: malloc (vg_replace_malloc.c:307)
-==3847==    by 0x109CDB: drum (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x109DE0: e1 (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x10A040: main (in /home/gabriel/SD/Tema3/tema3)
-==3847== 
-==3847== 48 bytes in 2 blocks are definitely lost in loss record 7 of 8
-==3847==    at 0x483877F: malloc (vg_replace_malloc.c:307)
-==3847==    by 0x109D92: e1 (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x10A040: main (in /home/gabriel/SD/Tema3/tema3)
-==3847== 
-==3847== 48 bytes in 2 blocks are definitely lost in loss record 8 of 8
-==3847==    at 0x483877F: malloc (vg_replace_malloc.c:307)
-==3847==    by 0x109DA0: e1 (in /home/gabriel/SD/Tema3/tema3)
-==3847==    by 0x10A040: main (in /home/gabriel/SD/Tema3/tema3)
-==3847== 
+==5009== Conditional jump or move depends on uninitialised value(s)
+==5009==    at 0x10A2B7: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109C78: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DD3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Uninitialised value was created by a heap allocation
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109DA5: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== Conditional jump or move depends on uninitialised value(s)
+==5009==    at 0x10A2B7: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109C78: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DF3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Uninitialised value was created by a heap allocation
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109DB3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== Invalid read of size 8
+==5009==    at 0x10A2B0: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109EB3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Address 0x4a167d0 is 16 bytes inside a block of size 24 free'd
+==5009==    at 0x48399AB: free (vg_replace_malloc.c:538)
+==5009==    by 0x10A2C4: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109C78: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DD3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Block was alloc'd at
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109DA5: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== Invalid free() / delete / delete[] / realloc()
+==5009==    at 0x48399AB: free (vg_replace_malloc.c:538)
+==5009==    by 0x10A2C4: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109EB3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Address 0x4a167c0 is 0 bytes inside a block of size 24 free'd
+==5009==    at 0x48399AB: free (vg_replace_malloc.c:538)
+==5009==    by 0x10A2C4: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109C78: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DD3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Block was alloc'd at
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109DA5: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== Invalid read of size 8
+==5009==    at 0x10A2B0: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109EBF: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Address 0x4a16830 is 16 bytes inside a block of size 24 free'd
+==5009==    at 0x48399AB: free (vg_replace_malloc.c:538)
+==5009==    by 0x10A2C4: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109C78: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DF3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Block was alloc'd at
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109DB3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== Invalid free() / delete / delete[] / realloc()
+==5009==    at 0x48399AB: free (vg_replace_malloc.c:538)
+==5009==    by 0x10A2C4: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109EBF: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Address 0x4a16820 is 0 bytes inside a block of size 24 free'd
+==5009==    at 0x48399AB: free (vg_replace_malloc.c:538)
+==5009==    by 0x10A2C4: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109C78: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DF3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Block was alloc'd at
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109DB3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== Conditional jump or move depends on uninitialised value(s)
+==5009==    at 0x10A2B7: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109C78: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DD3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Uninitialised value was created by a heap allocation
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109DA5: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== Invalid read of size 8
+==5009==    at 0x10A2B0: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109C78: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DD3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Address 0x4a16dc0 is 16 bytes inside a block of size 24 free'd
+==5009==    at 0x48399AB: free (vg_replace_malloc.c:538)
+==5009==    by 0x10A2C4: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109C78: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DD3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Block was alloc'd at
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109DA5: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== Invalid free() / delete / delete[] / realloc()
+==5009==    at 0x48399AB: free (vg_replace_malloc.c:538)
+==5009==    by 0x10A2C4: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109C78: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DD3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Address 0x4a16db0 is 0 bytes inside a block of size 24 free'd
+==5009==    at 0x48399AB: free (vg_replace_malloc.c:538)
+==5009==    by 0x10A2C4: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109C78: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DD3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Block was alloc'd at
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109DA5: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== Conditional jump or move depends on uninitialised value(s)
+==5009==    at 0x10A2B7: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109C78: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DF3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Uninitialised value was created by a heap allocation
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109DB3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== Invalid read of size 8
+==5009==    at 0x10A2B0: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109C78: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DF3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Address 0x4a16e20 is 16 bytes inside a block of size 24 free'd
+==5009==    at 0x48399AB: free (vg_replace_malloc.c:538)
+==5009==    by 0x10A2C4: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109C78: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DF3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Block was alloc'd at
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109DB3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== Invalid free() / delete / delete[] / realloc()
+==5009==    at 0x48399AB: free (vg_replace_malloc.c:538)
+==5009==    by 0x10A2C4: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109C78: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DF3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Address 0x4a16e10 is 0 bytes inside a block of size 24 free'd
+==5009==    at 0x48399AB: free (vg_replace_malloc.c:538)
+==5009==    by 0x10A2C4: delete_stack (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109C78: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DF3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009==  Block was alloc'd at
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109DB3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== 16 bytes in 1 blocks are definitely lost in loss record 1 of 6
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109A97: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DD3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== 16 bytes in 1 blocks are definitely lost in loss record 2 of 6
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109A97: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DF3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== 16 bytes in 1 blocks are definitely lost in loss record 3 of 6
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109A97: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DD3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== 16 bytes in 1 blocks are definitely lost in loss record 4 of 6
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109CEE: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DD3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== 16 bytes in 1 blocks are definitely lost in loss record 5 of 6
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109A97: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DF3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
+==5009== 16 bytes in 1 blocks are definitely lost in loss record 6 of 6
+==5009==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==5009==    by 0x109CEE: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x109DF3: e1 (in /home/gabriel/SD/Tema3/tema3)
+==5009==    by 0x10A06B: main (in /home/gabriel/SD/Tema3/tema3)
+==5009== 
