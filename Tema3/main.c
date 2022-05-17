@@ -32,7 +32,7 @@ drumret *drum(int s, int d, int *vizit,graphAdjMat_t *graph,stack *path)
                     if (ret->cost < mincost) {
                         mincost = ret->cost;
 
-                        delete_stack(path);
+                        //delete_stack(path);
                         //free(path);
                         path=ret->path;
                     }

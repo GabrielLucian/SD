@@ -1,0 +1,54 @@
+==3847== 16 bytes in 1 blocks are definitely lost in loss record 1 of 8
+==3847==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==3847==    by 0x109A97: drum (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x109DC0: e1 (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x10A040: main (in /home/gabriel/SD/Tema3/tema3)
+==3847== 
+==3847== 16 bytes in 1 blocks are definitely lost in loss record 2 of 8
+==3847==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==3847==    by 0x109A97: drum (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x109DE0: e1 (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x10A040: main (in /home/gabriel/SD/Tema3/tema3)
+==3847== 
+==3847== 16 bytes in 1 blocks are definitely lost in loss record 3 of 8
+==3847==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==3847==    by 0x109A97: drum (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x109DC0: e1 (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x10A040: main (in /home/gabriel/SD/Tema3/tema3)
+==3847== 
+==3847== 16 bytes in 1 blocks are definitely lost in loss record 4 of 8
+==3847==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==3847==    by 0x109CDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x109DC0: e1 (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x10A040: main (in /home/gabriel/SD/Tema3/tema3)
+==3847== 
+==3847== 16 bytes in 1 blocks are definitely lost in loss record 5 of 8
+==3847==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==3847==    by 0x109A97: drum (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x109DE0: e1 (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x10A040: main (in /home/gabriel/SD/Tema3/tema3)
+==3847== 
+==3847== 16 bytes in 1 blocks are definitely lost in loss record 6 of 8
+==3847==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==3847==    by 0x109CDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x109BDB: drum (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x109DE0: e1 (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x10A040: main (in /home/gabriel/SD/Tema3/tema3)
+==3847== 
+==3847== 48 bytes in 2 blocks are definitely lost in loss record 7 of 8
+==3847==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==3847==    by 0x109D92: e1 (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x10A040: main (in /home/gabriel/SD/Tema3/tema3)
+==3847== 
+==3847== 48 bytes in 2 blocks are definitely lost in loss record 8 of 8
+==3847==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==3847==    by 0x109DA0: e1 (in /home/gabriel/SD/Tema3/tema3)
+==3847==    by 0x10A040: main (in /home/gabriel/SD/Tema3/tema3)
+==3847== 

@@ -123,6 +123,6 @@ if [[ $err_valgrind -eq 0 ]]
 fi
 
 # Clean project
-rm -r ${output_dir}
-rm "rezultat_valgrind.txt"
+#rm -r ${output_dir}
+#rm "rezultat_valgrind.txt"
 make clean
