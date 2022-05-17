@@ -80,3 +80,23 @@ void print_stack(stack *path)
     }
     //printf("\n");
 }
+stack *copy(stack *a)
+{
+    stack *b=malloc(a->len*sizeof(node_t));
+    stack *c=malloc(a->len*sizeof(node_t));
+    node_t *aux;
+    while(a->len>0)
+    {
+        aux=remove_stack(a);
+        add_stack(b,aux->val);
+        free(aux);
+    }
+    while(b->len>0)
+    {
+        aux=remove_stack(b);
+        add_stack(c,aux->val);
+        free(aux);
+    }
+    free(a);
+    free(b);
+}

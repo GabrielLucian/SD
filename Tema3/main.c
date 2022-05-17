@@ -4,7 +4,7 @@
 #include "graph_adj_matrix.h"
 #include "stack.h"
 
-drumret *drum(int s, int d, int *vizit,graphAdjMat_t *graph,stack *path)
+drumret *drum(int s, int d, int *vizit,graphAdjMat_t *graph)
 {
     if(s==d)
     {
@@ -18,6 +18,7 @@ drumret *drum(int s, int d, int *vizit,graphAdjMat_t *graph,stack *path)
         int ok = 0, minnode;
         float mincost = 10000;
         drumret *ret;
+        stack *path;
         int *newvizit = calloc(graph->numNodes, sizeof(int));
         for (int i = 0; i < graph->numNodes; i++)
             newvizit[i] = vizit[i];
@@ -25,21 +26,20 @@ drumret *drum(int s, int d, int *vizit,graphAdjMat_t *graph,stack *path)
 
         for (int i = 0; i < graph->numNodes; i++) {
             if (graph->mat[s][i] != 0 && newvizit[i] == 0) {
-                ret = drum(i, d, newvizit, graph, path);
+                ret = drum(i, d, newvizit, graph);
                 if (ret != NULL) {
                     add_stack(ret->path, i);
                     ret->cost += graph->mat[s][i];
                     if (ret->cost < mincost) {
                         mincost = ret->cost;
-                        if(path!=NULL)
-                            delete_stack(path);
-                        //free(path);
                         path=ret->path;
+                        //delete_stack(path);
+                        //path=copy(ret->path);
+                        //free(ret);
                     }
                     else
                     {
                         delete_stack(ret->path);
-                        //free(ret->path);
                         free(ret);
                     }
                 }
@@ -65,11 +65,10 @@ void e1(graphAdjMat_t *graph)
         scanf("%d",&x);
         printf("%d\n",x);
         int *vizit=calloc(graph->numNodes, sizeof(int));
-        stack *path1=malloc(sizeof(stack));
-        stack *path2=malloc(sizeof(stack));
 
-        drumret *ret1=drum(s,x,vizit,graph,path1);
-        drumret *ret2=drum(x,s,vizit,graph,path2);
+
+        drumret *ret1=drum(s,x,vizit,graph);
+        drumret *ret2=drum(x,s,vizit,graph);
         add_stack(ret1->path,s);
         printf("%.1f %.1f\n",ret1->cost-1,ret2->cost-1);
         print_stack(ret1->path);
@@ -78,8 +77,6 @@ void e1(graphAdjMat_t *graph)
             printf("\n");
 
         free(vizit);
-        delete_stack(path1);
-        delete_stack(path2);
         delete_stack(ret1->path);
         delete_stack(ret2->path);
         free(ret1);
