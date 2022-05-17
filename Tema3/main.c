@@ -74,7 +74,8 @@ void e1(graphAdjMat_t *graph)
         printf("%.1f %.1f\n",ret1->cost-1,ret2->cost-1);
         print_stack(ret1->path);
         print_stack(ret2->path);
-        printf("\n");
+        if(i!=k-1)
+            printf("\n");
 
         free(vizit);
         delete_stack(path1);
@@ -109,7 +110,6 @@ int main() {
     for(int i=0;i<cer;i++)
     {
         fgets(cerinta,5,stdin);
-        //printf("%s\n",cerinta);
         if(strcmp(cerinta,"e1\n")==0)
             e1(graph);
         else if(strcmp(cerinta,"e2\n")==0)
@@ -122,11 +122,6 @@ int main() {
     }
     free(graph->mat);
     free(graph);
-    /*for(int i=0;i<n;i++) {
-        for (int j = 0; j <n; j++)
-            printf("%.1f ", graph->mat[i][j]);
-        printf("\n");
-    }*/
     //printf("\b");
     return 0;
 }
