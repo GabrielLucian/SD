@@ -100,3 +100,35 @@ stack *copy(stack *a)
     free(a);
     free(b);
 }
+stack *flip_stack(stack *a)
+{
+    stack *b=malloc(a->len*sizeof(node_t));
+    node_t *aux;
+    while(a->len>0)
+    {
+        aux=remove_stack(a);
+        add_stack(b,aux->val);
+        free(aux);
+    }
+    free(a);
+    return b;
+}
+stack *sort(stack* a)
+{
+    stack *b=init_stack();
+    node_t *aux,*aux2;
+    while(a->len>0)
+    {
+        aux=remove_stack(a);
+        while(b->len>0 && b->top->val < aux->val)
+        {
+            aux2=remove_stack(b);
+            add_stack(a,aux2->val);
+            free(aux2);
+        }
+        add_stack(b,aux->val);
+        free(aux);
+    }
+    free(a);
+    return b;
+}

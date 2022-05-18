@@ -13,10 +13,10 @@ graphAdjMat_t *initGraph(size_t numNodes) {
     graphAdjMat_t *g = malloc(sizeof(graphAdjMat_t));
 
     g->numNodes = numNodes;
-    g->mat = malloc(numNodes * sizeof(int *));
+    g->mat = malloc(numNodes * sizeof(float *));
 
     for (int i = 0; i < numNodes; i++) {
-        g->mat[i] = malloc(numNodes* sizeof(int));
+        g->mat[i] = malloc(numNodes* sizeof(float));
     }
     for (int i=0;i<numNodes;i++)
         for(int j=0;j<numNodes;j++)
@@ -199,7 +199,7 @@ void printGraph(graphAdjMat_t *g) {
     /* Afisez matricea de adiacenta */
     for (size_t u = 0; u < g->numNodes; u++) {
         for (size_t v = 0; v < g->numNodes; v++) {
-            printf("%3d ", g->mat[u][v]);
+            printf("%.1f ", g->mat[u][v]);
         }
         printf("\n");
     }

@@ -125,4 +125,4 @@ fi
 # Clean project
 #rm -r ${output_dir}
 #rm "rezultat_valgrind.txt"
-make clean
+#make clean

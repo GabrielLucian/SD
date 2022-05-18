@@ -23,4 +23,6 @@ node_t* remove_stack(stack *stack);
 void delete_stack(stack *stackk);
 void print_stack(stack *path);
 stack *copy(stack *a);
+stack *flip_stack(stack *a);
+stack *sort(stack* a);
 #endif //TEMA3__STACK_H
