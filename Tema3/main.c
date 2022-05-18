@@ -4,11 +4,11 @@
 #include "graph_adj_matrix.h"
 #include "stack.h"
 #include "queue.h"
-void printPath(int *parent, int j, int final)
+void printPath(int *incoming, int j, int final)
 {
-    if (parent[j] == -1)
+    if (incoming[j] == -1)
         return;
-    printPath(parent, parent[j],final);
+    printPath(incoming, incoming[j],final);
     printf("%d", j);
     if(j!=final)
         printf(" ");
@@ -25,7 +25,7 @@ int minDist(float *dist,int *visit, int size)
         }
     return minindex;
 }
-float *dijkstra(graphAdjMat_t *graph, int s, int d, int *incoming)
+float *dijkstraPRO(graphAdjMat_t *graph, int s, int *incoming)
 {
     float *dist=malloc(graph->numNodes*sizeof(float));
     int *visit=malloc(graph->numNodes*sizeof(int));
@@ -63,8 +63,8 @@ void e1(graphAdjMat_t *graph)
         int *path1,*path2;
         path1=malloc(graph->numNodes*sizeof(int));
         path2=malloc(graph->numNodes*sizeof(int));
-        dist1=dijkstra(graph,s,x,path1);
-        dist2=dijkstra(graph,x,s,path2);
+        dist1=dijkstraPRO(graph,s,path1);
+        dist2=dijkstraPRO(graph,x,path2);
         totalcost=totalcost+dist1[x]+dist2[s];
         printf("%d\n", x);
         printf("%.1f %.1f\n", dist1[x],dist2[s]);
@@ -168,7 +168,94 @@ void e2(graphAdjMat_t *graph)
     free(graphtr);
     free(groups);
 }
-
+int maskComplete(int *mask,int msize, int *visit, int vsize)
+{
+    int ok=1;
+    for(int i=0;i<msize;i++)
+        for(int j=0;j<vsize;j++)
+            if(visit[mask[i]]!=1)
+                ok=0;
+    return ok;
+}
+float *dijkstraMAX(graphAdjMat_t *graph, int s, int d, int *incoming, int *mask, int msize)
+{
+    float *dist=malloc(graph->numNodes*sizeof(float));
+    int *visit=malloc(graph->numNodes*sizeof(int));
+    for(int i=0;i<graph->numNodes;i++)
+    {
+        dist[i]=9999;
+        visit[i]=0;
+        incoming[i]=-1;
+    }
+    dist[s]=0;
+    for(int i=0;i<graph->numNodes-1;i++)
+    {
+        int u=minDist(dist,visit,graph->numNodes);
+        visit[u]=1;
+        if(maskComplete(mask,msize,visit,graph->numNodes)==0)
+            for(int j=0;j<graph->numNodes;j++)
+                if(graph->mat[u][j]!=0 && dist[u]!= 9999 && dist[u] + graph->mat[u][j] < dist[j])
+                {
+                    dist[j] = dist[u] + graph->mat[u][j];
+                    incoming[j]=u;
+                }
+    }
+    free(visit);
+    return dist;
+}
+float *dijkstra(graphAdjMat_t *graph, int s)
+{
+    float *dist=malloc(graph->numNodes*sizeof(float));
+    int *visit=malloc(graph->numNodes*sizeof(int));
+    for(int i=0;i<graph->numNodes;i++)
+    {
+        dist[i]=9999;
+        visit[i]=0;
+    }
+    dist[s]=0;
+    for(int i=0;i<graph->numNodes-1;i++)
+    {
+        int u=minDist(dist,visit,graph->numNodes);
+        visit[u]=1;
+        for(int j=0;j<graph->numNodes;j++)
+            if(visit[j]==0 && graph->mat[u][j]!=0 && dist[u]!= 9999 && dist[u] + graph->mat[u][j] < dist[j])
+            {
+                dist[j] = dist[u] + graph->mat[u][j];
+            }
+    }
+    free(visit);
+    return dist;
+}
+float distance(graphAdjMat_t *graph, int s, int d)
+{
+    float *dist=dijkstra(graph,s);
+    float distance=dist[d];
+    free(dist);
+    return distance;
+}
+void swap(int *zona, int i, int j)
+{
+    int aux;
+    aux=zona[i];
+    zona[i]=zona[j];
+    zona[j]=aux;
+}
+void permutari(int *zona,int size, int start, int end)
+{
+    if(end==start)
+    {    
+        for(int i=0;i<size;i++)
+            printf("%d ", zona[i]);
+        printf("\n");
+        return;
+    }
+    for(int i=start;i<end+1;i++)
+    {
+        swap(zona,start,i);
+        permutari(zona,size,start+1,end);
+        swap(zona,start,i);
+    }
+}
 void e3(graphAdjMat_t *graph)
 {
     int r,k;
@@ -180,11 +267,16 @@ void e3(graphAdjMat_t *graph)
         int *zona=calloc(k+1,sizeof(int));
         for(int j=0;j<k;j++)
             scanf("%d",&zona[j+1]);
+        zona[0]=0;
+        // for(int i=0;i<k+1;i++)
+        //     printf("%d ", zona[i]);
+        // printf("\n");
+        permutari(zona,k+1,0,k);
         for(int j=0;j<graph->numNodes;j++)
         {
             if(graph->mat[j][j]==1)
                 zona[0]=j;
-            
+            float *dist;
         }
         free(zona);
     }
@@ -215,7 +307,7 @@ int main() {
             e1(graph);
         else if(strcmp(cerinta,"e2")==0)
             e2(graph);
-        else if(strcmp(cerinta,"e3")==0)
+        else if(strcmp(cerinta,"e3")==0 || strcmp(cerinta,"e3\n")==0)
             e3(graph);
         fgets(cerinta,5,stdin);
         if(i!=cer-1)
