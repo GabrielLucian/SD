@@ -158,7 +158,8 @@ void e2(graphAdjMat_t *graph)
     for(int i=0;i<count;i++)
     {
         print_stack(groups[i]);
-        printf("\n");
+        if(i!=count-1)
+            printf("\n");
         delete_stack(groups[i]);
     }
 

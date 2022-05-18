@@ -75,7 +75,9 @@ void print_stack(stack *path)
     node_t *current=path->top;
     while(current!=NULL)
     {
-        printf("%.0f ",current->val);
+        printf("%.0f",current->val);
+        if(current->next!=NULL)
+            printf(" ");  
         current=current->next;
     }
     //printf("\n");
