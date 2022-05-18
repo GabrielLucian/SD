@@ -18,10 +18,7 @@ typedef struct graphEdge {
     size_t v;       /**< Nodul destinatie */
     float cost;       /**< Costul muchiei */
 } graphEdge_t;
-typedef struct drumret{
-    float cost;
-    stack *path;
-} drumret;
+
 
 /**
  * @brief Functie care initializeaza un graf cu matrice de adiacenta. Initial,
