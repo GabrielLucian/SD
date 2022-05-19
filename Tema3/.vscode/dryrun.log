@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/gabriel/Library/Mobile Documents/com~apple~CloudDocs/ACS/SD/Tema3_git/SD/Tema3'
+gcc -std=c99 -o tema3 graph_adj_matrix.c main.c stack.c
+make: Leaving directory `/Users/gabriel/Library/Mobile Documents/com~apple~CloudDocs/ACS/SD/Tema3_git/SD/Tema3'
+ 
