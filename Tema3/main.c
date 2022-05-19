@@ -257,6 +257,9 @@ void e3(graphAdjMat_t *graph)
         if(i!=r-1)
             printf("\n");
     }
+    for (int i = 0; i < graph->numNodes; i++)
+        free(distances[i]);
+    free(distances);
 }
 int main() {
     int n,m,d,u,v,dep,cer;
