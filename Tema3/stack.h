@@ -1,7 +1,3 @@
-//
-// Created by Gabriel Ionescu on 14.05.2022.
-//
-
 #ifndef TEMA3__STACK_H
 #define TEMA3__STACK_H
 

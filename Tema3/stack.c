@@ -1,6 +1,3 @@
-//
-// Created by Gabriel Ionescu on 14.05.2022.
-//
 #include "stack.h"
 #include <stdlib.h>
 #include <stdio.h>

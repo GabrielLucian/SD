@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "graph_adj_matrix.h"
 #include "stack.h"
-#include "queue.h"
+
 void printPath(int *incoming, int j, int final)
 {
     if (incoming[j] == -1)
