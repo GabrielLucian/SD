@@ -168,41 +168,7 @@ void e2(graphAdjMat_t *graph)
     free(graphtr);
     free(groups);
 }
-int maskComplete(int *mask,int msize, int *visit, int vsize)
-{
-    int ok=1;
-    for(int i=0;i<msize;i++)
-        for(int j=0;j<vsize;j++)
-            if(visit[mask[i]]!=1)
-                ok=0;
-    return ok;
-}
-float *dijkstraMAX(graphAdjMat_t *graph, int s, int d, int *incoming, int *mask, int msize)
-{
-    float *dist=malloc(graph->numNodes*sizeof(float));
-    int *visit=malloc(graph->numNodes*sizeof(int));
-    for(int i=0;i<graph->numNodes;i++)
-    {
-        dist[i]=9999;
-        visit[i]=0;
-        incoming[i]=-1;
-    }
-    dist[s]=0;
-    for(int i=0;i<graph->numNodes-1;i++)
-    {
-        int u=minDist(dist,visit,graph->numNodes);
-        visit[u]=1;
-        if(maskComplete(mask,msize,visit,graph->numNodes)==0)
-            for(int j=0;j<graph->numNodes;j++)
-                if(graph->mat[u][j]!=0 && dist[u]!= 9999 && dist[u] + graph->mat[u][j] < dist[j])
-                {
-                    dist[j] = dist[u] + graph->mat[u][j];
-                    incoming[j]=u;
-                }
-    }
-    free(visit);
-    return dist;
-}
+
 float *dijkstra(graphAdjMat_t *graph, int s)
 {
     float *dist=malloc(graph->numNodes*sizeof(float));
@@ -240,45 +206,62 @@ void swap(int *zona, int i, int j)
     zona[i]=zona[j];
     zona[j]=aux;
 }
-void permutari(int *zona,int size, int start, int end)
+
+void checkDistance(int *zona, int size, float *mincost, graphAdjMat_t *graph)
+{
+    float cost=0;
+    for(int i=0;i<size-1;i++)
+    {
+        float dist=distance(graph,zona[i],zona[i+1]);
+        if(dist < graph->mat[zona[i]][zona[i+1]] || graph->mat[zona[i]][zona[i+1]]==0)
+            cost+=dist;
+        else
+            cost+=graph->mat[zona[i]][zona[i+1]];
+        if(cost>*mincost)
+            return;
+    }
+    if(cost<*mincost)
+        *mincost=cost;
+}
+void permutari(int *zona,int size, int start, int end, float *mincost, graphAdjMat_t *graph)
 {
     if(end==start)
     {    
-        for(int i=0;i<size;i++)
-            printf("%d ", zona[i]);
-        printf("\n");
+        checkDistance(zona,size,mincost,graph);
         return;
     }
     for(int i=start;i<end+1;i++)
     {
         swap(zona,start,i);
-        permutari(zona,size,start+1,end);
+        permutari(zona,size,start+1,end,mincost,graph);
         swap(zona,start,i);
     }
 }
 void e3(graphAdjMat_t *graph)
 {
-    int r,k;
+    int r;
     scanf("%d", &r);
+    int k,x;
     for(int i=0;i<r;i++)
     {
-        int k,x;
         scanf("%d",&k);
-        int *zona=calloc(k+1,sizeof(int));
+        int *zona=malloc((k+2)*sizeof(int));
         for(int j=0;j<k;j++)
             scanf("%d",&zona[j+1]);
-        zona[0]=0;
-        // for(int i=0;i<k+1;i++)
-        //     printf("%d ", zona[i]);
-        // printf("\n");
-        permutari(zona,k+1,0,k);
+        float mincost=9999;
         for(int j=0;j<graph->numNodes;j++)
         {
             if(graph->mat[j][j]==1)
+            {
                 zona[0]=j;
-            float *dist;
+                zona[k+1]=j;
+                permutari(zona,k+2,1,k,&mincost,graph);
+            }
         }
         free(zona);
+        printf("%.1f",mincost);
+        if(i!=r-1)
+            printf("\n");
     }
 }
 int main() {
