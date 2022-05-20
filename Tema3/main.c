@@ -66,7 +66,7 @@ void e1(graphAdjMat_t *graph)
         dist1=dijkstraPRO(graph,s,path1);
         dist2=dijkstraPRO(graph,x,path2);
         totalcost=totalcost+dist1[x]+dist2[s];
-        
+
         printf("%d\n", x);
         printf("%.1f %.1f\n", dist1[x],dist2[s]);
         printf("%d ", s);
@@ -217,7 +217,18 @@ void checkDistance(int *zona, int size, float *mincost, graphAdjMat_t *graph, fl
     if(cost<*mincost)
         *mincost=cost;
 }
-void permutari(int *zona,int size, int start, int end, float *mincost, graphAdjMat_t *graph, float **distances)
+int shouldContinue(int *zona, int size, float *mincost, graphAdjMat_t *graph, float **distances)
+{
+    float cost = 0;
+    for (int i = 0; i < size - 1; i++)
+    {
+        cost += distances[zona[i]][zona[i + 1]];
+        if (cost > *mincost)
+            return 0;
+    }
+    return 1;
+}
+void permutari(int *zona, int size, int start, int end, float *mincost, graphAdjMat_t *graph, float **distances)
 {
     if(end==start)
     {    
@@ -227,8 +238,14 @@ void permutari(int *zona,int size, int start, int end, float *mincost, graphAdjM
     for(int i=start;i<end+1;i++)
     {
         swap(zona,start,i);
-        permutari(zona,size,start+1,end,mincost,graph,distances);
-        swap(zona,start,i);
+        if(shouldContinue(zona, start+1, mincost, graph, distances))
+            permutari(zona, size, start + 1, end, mincost, graph, distances);
+        else
+        {
+            swap(zona,start,i);
+            return;
+        }
+        swap(zona, start, i);
     }
 }
 int bestDeposit(graphAdjMat_t *graph, int *zona, int size,float **distances)
