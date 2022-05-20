@@ -66,6 +66,7 @@ void e1(graphAdjMat_t *graph)
         dist1=dijkstraPRO(graph,s,path1);
         dist2=dijkstraPRO(graph,x,path2);
         totalcost=totalcost+dist1[x]+dist2[s];
+        
         printf("%d\n", x);
         printf("%.1f %.1f\n", dist1[x],dist2[s]);
         printf("%d ", s);
@@ -81,12 +82,15 @@ void e1(graphAdjMat_t *graph)
     printf("%.1f", totalcost);
     
 }
-graphAdjMat_t *transpose(graphAdjMat_t *graph){
+graphAdjMat_t *transpose(graphAdjMat_t *graph)
+{
     graphAdjMat_t *tr=malloc(sizeof(graphAdjMat_t));
     tr->numNodes=graph->numNodes;
+
     tr->mat=malloc(graph->numNodes*sizeof(float*));
     for(int i=0;i<graph->numNodes;i++)
         tr->mat[i]=malloc(graph->numNodes*sizeof(float));
+
     for(int i=0;i< tr->numNodes;i++)
         for(int j=0;j<tr->numNodes;j++)
             tr->mat[i][j]=graph->mat[j][i];
@@ -95,12 +99,12 @@ graphAdjMat_t *transpose(graphAdjMat_t *graph){
 void DFS(graphAdjMat_t *graph, int s, int *vizit, stack *path)
 {
     vizit[s] = 1;
-    for (int i = 0; i < graph->numNodes; i++) {
-        if (graph->mat[s][i] != 0 && vizit[i] == 0 && graph->mat[i][i]!=1) {
+    for (int i = 0; i < graph->numNodes; i++) 
+        if (graph->mat[s][i] != 0 && vizit[i] == 0 && graph->mat[i][i]!=1) 
+        {
             add_stack(path,i);
             DFS(graph,i,vizit,path);
         }
-    }
 }
 
 void e2(graphAdjMat_t *graph)
@@ -227,35 +231,52 @@ void permutari(int *zona,int size, int start, int end, float *mincost, graphAdjM
         swap(zona,start,i);
     }
 }
+int bestDeposit(graphAdjMat_t *graph, int *zona, int size,float **distances)
+{
+    float distance=9999;
+    int best;
+    for (int j = 0; j < graph->numNodes; j++)
+    {
+        if (graph->mat[j][j] == 1)
+        {
+            for (int i = 1; i < size;i++)
+                if(distances[j][zona[i]]<distance)
+                {
+                    best = j;
+                    distance = distances[j][zona[i]];
+                }
+        }
+    }
+    return best;
+}
 void e3(graphAdjMat_t *graph)
 {
-    int r;
+    int r,dep,k,x;
     scanf("%d", &r);
-    int k,x;
     float **distances;
+
     distances = malloc(graph->numNodes * sizeof(float *));
     for (int i = 0; i < graph->numNodes; i++)
         distances[i] = dijkstra(graph, i);
+
     for (int i = 0; i < r; i++)
     {
-        scanf("%d",&k);
-        int *zona=malloc((k+2)*sizeof(int));
-        for(int j=0;j<k;j++)
-            scanf("%d",&zona[j+1]);
-        float mincost=9999;
-        for(int j=0;j<graph->numNodes;j++)
-        {
-            if(graph->mat[j][j]==1)
-            {
-                zona[0]=j;
-                zona[k+1]=j;
-                permutari(zona,k+2,1,k,&mincost,graph,distances);
-            }
-        }
+        scanf("%d", &k);
+        int *zona = malloc((k + 2) * sizeof(int));
+        for (int j = 0; j < k; j++)
+            scanf("%d", &zona[j + 1]);
+
+        dep = bestDeposit(graph, zona, k + 1, distances);
+        zona[0] = dep;
+        zona[k + 1] = dep;
+
+        float mincost = 9999;
+        permutari(zona, k + 2, 1, k, &mincost, graph, distances);
+
         free(zona);
-        printf("%.1f",mincost);
-        if(i!=r-1)
-            printf("\n");
+        printf("%.1f", mincost);
+        if (i != r - 1)
+           printf("\n");
     }
     for (int i = 0; i < graph->numNodes; i++)
         free(distances[i]);
@@ -266,6 +287,7 @@ int main() {
     float w;
     char cerinta[5];
     graphAdjMat_t *graph;
+
     scanf("%d%d%d",&n,&m,&d);
     graph=initGraph(n);
     for(int i=0;i<m;i++)
@@ -278,6 +300,7 @@ int main() {
         scanf("%d",&dep);
         graph->mat[dep][dep]=1;
     }
+
     scanf("%d",&cer);
     fgets(cerinta,5,stdin);
     for(int i=0;i<cer;i++)
@@ -293,6 +316,7 @@ int main() {
         if(i!=cer-1)
             printf("\n");
     }
+
     for (int i = 0; i < graph->numNodes; i++) {
         free(graph->mat[i]);
     }
