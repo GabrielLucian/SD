@@ -120,7 +120,6 @@ void e2(graphAdjMat_t *graph)
         {
             add_stack(path1,i);
             DFS(graph,i,vizit1,path1);
-            
         }
     }
     free(vizit1);
